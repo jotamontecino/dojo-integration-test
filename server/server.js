@@ -14,6 +14,15 @@ fastify.register(fastifySensible)
 //## Insert DB decorator
 import { createClient } from './src/modules/inMemoryDBProxy.js';
 const dbClient = createClient("Planets");
+console.log("###############");
+dbClient.insertOne({test:1})
+dbClient.insertOne({test:2})
+dbClient.insertMultiple([{test:3}, {test:4}]);
+console.log(dbClient.getById(3));
+dbClient.deleteById(3)
+
+console.log(dbClient.getList());
+console.log("###############");
 
 const openApiSpecsFile =  await import('./src/open-api.js')
 .catch((e) => {
