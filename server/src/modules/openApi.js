@@ -213,7 +213,7 @@ function parseMethods(openAPIMethodSpecList, handlers) {
  * @param {object} handlers - Mixin containing all handlers defined.
  * @returns {array} - The array of all route definitions ready to be injected inside Fastify
  */
-function routesFromOpenApiSpecs(openAPiRawSpecs, handlers) {
+export function routesFromOpenApiSpecs(openAPiRawSpecs, handlers) {
   const routes = [];
   console.info('Parsing references'); // eslint-disable-line no-console
   const specs = resolveInternalReferences(openAPiRawSpecs);
@@ -230,7 +230,3 @@ function routesFromOpenApiSpecs(openAPiRawSpecs, handlers) {
   });
   return routes;
 }
-
-module.exports = {
-  routesFromOpenApiSpecs,
-};
